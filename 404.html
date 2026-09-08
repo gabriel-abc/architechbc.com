@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Architech Business Consulting</title>
+<meta name="robots" content="noindex">
+
+<!-- HTTPS only. GitHub Pages cannot send HSTS on a custom domain, so this is a
+     belt-and-braces guard; the 301 from Pages does the real work. -->
+<script>
+  if (location.protocol === 'http:' && /(^|\.)architechbc\.com$/.test(location.hostname)) {
+    location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+  }
+</script>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#0E1116">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .nf { min-height: 78vh; display: grid; place-content: center; text-align: center; gap: 1.1rem; }
+  .nf svg { width: 44px; height: 44px; margin: 0 auto 1rem; color: var(--ink); }
+  .nf .code { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .18em; color: var(--accent); }
+  .nf p { color: var(--slate); max-width: 42ch; margin-inline: auto; }
+  .nf .btn { margin-top: .8rem; }
+</style>
+</head>
+<body>
+<main class="wrap nf">
+  <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <g stroke="currentColor" stroke-width="7" stroke-linecap="square">
+      <path d="M50 14 L82 76"/><path d="M50 14 L18 76"/><path d="M31 58 H69"/>
+    </g>
+    <path d="M10 90 H90" stroke="var(--accent)" stroke-width="7" stroke-linecap="square"/>
+  </svg>
+  <span class="code">ERROR 404</span>
+  <h1 style="font-size:clamp(2rem,4vw,2.8rem)">This page doesn't exist.</h1>
+  <p>Which is at least an honest error message. Everything worth reading is on the home page.</p>
+  <div><a class="btn btn--primary" href="/">Back to the site</a></div>
+</main>
+</body>
+</html>
