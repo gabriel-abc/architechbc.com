@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="Architech">
+  <g stroke="currentColor" stroke-width="9" stroke-linecap="square">
+    <path d="M50 18 L80 66"/>
+    <path d="M50 18 L20 66"/>
+    <path d="M33 53 H67"/>
+  </g>
+  <path d="M14 80 H86" stroke="var(--mark-datum, #A97426)" stroke-width="9" stroke-linecap="square"/>
+</svg>

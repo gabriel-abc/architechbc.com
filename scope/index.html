@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- HTTPS only. GitHub Pages cannot send HSTS on a custom domain, so this is a
+     belt-and-braces guard; the 301 from Pages does the real work. -->
+<script>
+  if (location.protocol === 'http:' && /(^|\.)architechbc\.com$/.test(location.hostname)) {
+    location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+  }
+</script>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<title>Salesforce Readiness Review — free, private, no sign-up</title>
+<meta name="description" content="A structured review of your Salesforce org across ownership, process, security, data, automation, integration, release and adoption. Runs entirely in your browser — your answers are never sent anywhere.">
+<link rel="canonical" href="https://architechbc.com/scope/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Architech Business Consulting">
+<meta property="og:title" content="Salesforce Readiness Review">
+<meta property="og:description" content="An honest score, and a workbook you can take anywhere. Runs entirely in your browser — nothing is sent anywhere.">
+<meta property="og:url" content="https://architechbc.com/scope/">
+<meta property="og:image" content="https://architechbc.com/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0E1116">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/scope.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="/" aria-label="Architech Business Consulting — home">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="9" stroke-linecap="square">
+          <path d="M50 18 L80 66"/><path d="M50 18 L20 66"/><path d="M33 53 H67"/>
+        </g>
+        <path d="M14 80 H86" stroke="var(--accent)" stroke-width="9" stroke-linecap="square"/>
+      </svg>
+      <span class="brand__name">Archi<em>tech</em></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="btn btn--ghost btn--sm" href="/"><span class="hide-xs">&larr; Back to </span>site</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="rev-hero">
+    <div class="wrap">
+      <p class="eyebrow">Salesforce Readiness Review</p>
+      <h1>An honest look at your org, before anyone tries to sell you anything.</h1>
+      <p class="lede">
+        Covers ownership, process, security, data, automation, integration, portals, release,
+        adoption and governance. Answer what you know, mark the rest &ldquo;not sure&rdquo;, and come back
+        whenever &mdash; it remembers where you were. No sign-up, no email needed, nothing to install,
+        and <strong>your answers never leave your browser</strong>.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="gate" id="revGate"></section>
+    <p class="gate__wait" id="gateHint">
+      Answer both and the review builds itself around them &mdash; different wording, and only the
+      sections that apply to you.
+    </p>
+  </div>
+
+  <div id="revShell" hidden>
+  <div class="rev-sticky" id="revSticky">
+    <div class="wrap rev-sticky__inner">
+      <div class="rev-sticky__prog">
+        <div class="rev-sticky__bar"><span id="progBar"></span></div>
+        <span class="rev-sticky__text" id="progText">0 of 0 answered</span>
+      </div>
+
+      <select class="rev-jump" id="revJump" aria-label="Jump to section"></select>
+
+      <div class="rev-sticky__score">
+        <span class="rev-sticky__label">Readiness</span>
+        <strong id="ovScore">&mdash;</strong>
+        <span class="badge" id="ovBand" data-tone="none">&mdash;</span>
+      </div>
+
+      <button type="button" class="btn btn--ghost btn--sm rev-clear" id="btnReset" title="Clear every answer">
+        <span aria-hidden="true">&#10005;</span> <span class="hide-xs">Start over</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="wrap rev-layout">
+    <aside class="rev-side">
+      <nav class="revnav" id="revNav" aria-label="Review sections"></nav>
+    </aside>
+
+    <div class="rev-main">
+      <div id="revBody"></div>
+
+      <section class="qsec" id="sec-closing">
+        <div class="qsec__head">
+          <span class="qsec__step">Closing</span>
+          <h2>Three last questions</h2>
+          <p>Context rather than scoring &mdash; these shape how the findings should be read, and
+             they are the difference between a list of risks and a sense of which one matters first.</p>
+          <div class="qsec__meter"><span data-bar="closing"></span></div>
+        </div>
+        <div id="revContext"></div>
+      </section>
+
+      <!-- ============================ RESULTS ============================ -->
+      <section class="results" id="results" hidden>
+        <div class="qsec__head">
+          <span class="qsec__step">Results</span>
+          <h2>What this says about your org</h2>
+          <p>Scores reflect only the questions you answered. Skipped questions are excluded rather
+             than counted as zero, so a partial review isn&rsquo;t unfairly penalised.</p>
+        </div>
+
+        <div class="scorecard" id="scorecard"></div>
+
+        <div id="findingsWrap" hidden>
+          <h3 class="results__h">Flags raised <span class="results__n" id="findingsCount">0</span></h3>
+          <ul class="findings" id="findings"></ul>
+        </div>
+
+        <p class="results__none" id="noFindings" hidden>
+          Nothing flagged from what you&rsquo;ve answered so far. That&rsquo;s genuinely uncommon
+          &mdash; either your org is in good shape or the sections you skipped are the interesting ones.
+        </p>
+
+        <!-- ------------------------- TAKE IT WITH YOU ------------------- -->
+        <div class="takeaway">
+          <h3>Take this with you</h3>
+          <p class="takeaway__lede">
+            Both are free, need nothing from you, and are yours to use anywhere &mdash; including
+            with another consultancy.
+          </p>
+          <div class="takeaway__row">
+            <button type="button" class="btn btn--primary" id="btnLink">Copy my private link</button>
+            <button type="button" class="btn btn--ghost" id="btnXlsx">Download workbook (.xlsx)</button>
+          </div>
+          <p class="takeaway__note">
+            The workbook has three tabs: every question and answer with group scores, the flags
+            raised with severity and explanation, and your link. Sortable and filterable.
+            The link resumes where you left off on any device and is the only copy of your answers
+            in existence &mdash; there is no server-side copy to recover if you lose it.
+          </p>
+        </div>
+
+        <!-- ---------------------------- SUBMIT -------------------------- *
+             No promise of a report. He reads submissions; a fit gets a reply.
+             Everything of value is already free above, so this asks nothing
+             the visitor has not already been given more than.
+         * --------------------------------------------------------------- -->
+        <div class="analysis">
+          <h3>Want a second opinion on it?</h3>
+          <p>
+            If you&rsquo;d like someone to look properly at what came out of this, send it over.
+            A person reads every submission. If it looks like something worth a conversation,
+            you&rsquo;ll hear back &mdash; and if not, you still keep everything above.
+          </p>
+          <p class="analysis__why">
+            To keep that honest, submission needs the full picture. A half-finished review, or one
+            where most of the org is unknown, can&rsquo;t be judged fairly by anyone.
+          </p>
+
+          <ul class="reqs" id="sendReqs"></ul>
+
+          <div class="fields fields--2">
+            <div class="field">
+              <label for="fEmail">Your email</label>
+              <input type="email" id="fEmail" autocomplete="email" inputmode="email" placeholder="you@company.com">
+            </div>
+            <div class="field">
+              <label for="fCompany">Company <span class="opt-tag">optional</span></label>
+              <input type="text" id="fCompany" autocomplete="organization">
+            </div>
+          </div>
+          <button type="button" class="btn btn--primary" id="btnSend">
+            Send my review <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+          </button>
+          <p class="sendmsg" id="sendMsg" role="alert" hidden></p>
+          <p class="analysis__note">
+            Opens your own mail client with the message pre-written, so you see exactly what
+            you&rsquo;re sending before it goes. Nothing is transmitted from this page &mdash; there
+            is no form, no backend, and nothing here that could send on your behalf.
+          </p>
+        </div>
+      </section>
+
+      <p class="results__empty" id="emptyState">
+        Answer anything above and your results will appear here.
+      </p>
+    </div>
+  </div>
+  </div><!-- /revShell -->
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <small>&copy; <span id="year">2026</span> Architech Business Consulting, LLC &middot; Sandy, Utah</small>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="mailto:info@architechbc.com">info@architechbc.com</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Privacy notice. Appears shortly after load, dismissible by button or swipe,
+     and remembered so it never nags a returning visitor. -->
+<aside class="notice" id="notice" data-show="false" role="note" aria-label="How your answers are handled">
+  <button class="notice__x" data-dismiss aria-label="Dismiss">&#10005;</button>
+  <h2>Your answers go nowhere.</h2>
+  <p>
+    No backend, no analytics, no form service. Your responses are packed into the part of the
+    address bar after the <code>#</code>, which browsers never transmit in a web request &mdash;
+    so they reach no server, mine included, and are saved only on this device.
+  </p>
+  <p>
+    <strong>Copy your link</strong> and whoever you send it to sees your answers. Nobody else can.
+    If you want a second opinion, you email me that link yourself. Until then I have no idea you
+    were ever here.
+  </p>
+  <button class="btn btn--primary btn--sm notice__ok" data-dismiss>Got it</button>
+</aside>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="/assets/js/xlsx.js"></script>
+<script src="/assets/js/assessment-model.js"></script>
+<script src="/assets/js/assessment.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var h = document.getElementById('siteHeader');
+  var s = function () { h.setAttribute('data-scrolled', window.scrollY > 8 ? 'true' : 'false'); };
+  s(); window.addEventListener('scroll', s, { passive: true });
+</script>
+</body>
+</html>

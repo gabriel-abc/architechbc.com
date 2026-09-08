@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- HTTPS only. GitHub Pages cannot send HSTS on a custom domain, so this is a
+     belt-and-braces guard; the 301 from Pages does the real work. -->
+<script>
+  if (location.protocol === 'http:' && /(^|\.)architechbc\.com$/.test(location.hostname)) {
+    location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+  }
+</script>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<title>Architech Business Consulting — Independent Salesforce Architecture</title>
+<meta name="description" content="Independent Salesforce architecture, integration engineering, and automation documentation for orgs that have outgrown their original build. Architech Business Consulting, LLC.">
+<link rel="canonical" href="https://architechbc.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Architech Business Consulting">
+<meta property="og:title" content="Architech Business Consulting — Independent Salesforce Architecture">
+<meta property="og:description" content="Integration engineering, automation audits, and the documentation nobody else will write. For Salesforce orgs that have gotten complicated.">
+<meta property="og:url" content="https://architechbc.com/">
+<meta property="og:image" content="https://architechbc.com/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0E1116">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Architech Business Consulting, LLC",
+  "alternateName": "Architech",
+  "url": "https://architechbc.com/",
+  "email": "info@architechbc.com",
+  "description": "Independent Salesforce architecture, integration engineering, and automation documentation.",
+  "founder": { "@type": "Person", "name": "Gabriel Marquez" },
+  "foundingDate": "2017",
+  "address": { "@type": "PostalAddress", "addressLocality": "Sandy", "addressRegion": "UT", "addressCountry": "US" },
+  "areaServed": "US",
+  "knowsAbout": ["Salesforce", "Apex", "Salesforce Flow", "Lightning Web Components", "Salesforce CPQ", "Salesforce Billing", "Accounting Seed", "System Integration", "Salesforce DX", "Solution Architecture", "Quote to Cash"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="/" aria-label="Architech Business Consulting — home">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="7" stroke-linecap="square">
+          <path d="M50 14 L82 76"/><path d="M50 14 L18 76"/><path d="M31 58 H69"/>
+        </g>
+        <path d="M10 90 H90" stroke="var(--accent)" stroke-width="7" stroke-linecap="square"/>
+      </svg>
+      <span class="brand__name">Archi<em>tech</em></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#depth">Depth</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a class="btn btn--primary header-cta" href="/scope/">Free org review</a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Independent Salesforce architecture &middot; Est. 2017</p>
+      <h1>Salesforce architecture for orgs that have gotten <em>complicated</em>.</h1>
+      <p class="lede hero__lede">
+        I design the models, build the integrations, untangle the automation, and write the
+        documentation that lets your team understand its own system again. One senior engineer,
+        working directly with you
+        &mdash; no account managers, no offshore hand-off, no discovery deck.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/scope/">Start the free review <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--ghost" href="mailto:info@architechbc.com">info@architechbc.com</a>
+      </div>
+      <p class="hero__sig">&ldquo;Excellence from understanding why, not just knowing how.&rdquo;</p>
+    </div>
+  </section>
+
+  <!-- ========================== SERVICES ========================== -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Services</p>
+        <h2>Six ways I get brought in.</h2>
+        <p>Most engagements start as one of these and grow into another. All of them are scoped
+           against a written Statement of Work before any code is written.</p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <span class="service__num">01</span>
+          <h3>Quote-to-cash architecture</h3>
+          <p>The chain from a quote to money in the bank, built or repaired end to end:
+             configuration and pricing, billing schedules, payment capture across more than one
+             gateway, revenue recognition, and the handoff into accounting &mdash; including the
+             reconciliation nobody notices until the numbers disagree. Approval rules included,
+             because that is usually where quoting actually stalls.</p>
+          <ul><li>CPQ</li><li>Billing</li><li>Revenue recognition</li><li>Approval rules</li></ul>
+        </article>
+
+        <article class="service">
+          <span class="service__num">02</span>
+          <h3>Integration engineering</h3>
+          <p>Connecting Salesforce to the systems that actually run the business &mdash; billing
+             platforms, operator APIs, payment providers, internal services. Built with real error
+             handling, so failures surface loudly instead of disappearing into a debug log.</p>
+          <ul><li>Apex callouts</li><li>Named credentials</li><li>Queueable / async</li><li>REST &amp; gRPC-web</li></ul>
+        </article>
+
+        <article class="service">
+          <span class="service__num">03</span>
+          <h3>Portals &amp; customer-facing applications</h3>
+          <p>Applications for the people outside your company &mdash; customers, vendors,
+             contractors, advisors &mdash; each with their own login, their own slice of the data
+             and their own idea of what the system is for. Built on one model rather than three, so
+             a change to the process doesn't have to be made three times.</p>
+          <ul><li>Experience Cloud</li><li>Multi-persona access</li><li>Self-service</li><li>Sharing model</li></ul>
+        </article>
+
+        <article class="service">
+          <span class="service__num">04</span>
+          <h3>Replacing a system you've outgrown</h3>
+          <p>Moving off a legacy platform, a competing product, or the spreadsheet that quietly
+             became one. The work is mostly reading: establishing what the old system really does,
+             including the parts nobody documented, before deciding what deserves to be carried
+             across at all.</p>
+          <ul><li>Data modelling</li><li>Migration</li><li>Reconciliation</li><li>Cutover</li></ul>
+        </article>
+
+        <article class="service">
+          <span class="service__num">05</span>
+          <h3>Automation audit &amp; documentation</h3>
+          <p>Find out what your org actually does. Every flow, trigger, validation rule and
+             assignment rule traced, tested against live behaviour, and written up in language your
+             admins and your auditors can both use.</p>
+          <ul><li>Flow archaeology</li><li>Conflict detection</li><li>Written guides</li><li>Handover</li></ul>
+        </article>
+
+        <article class="service">
+          <span class="service__num">06</span>
+          <h3>Retained engineering</h3>
+          <p>Ongoing senior capacity for teams that need an architect occasionally but can't justify
+             one full-time. Deployment discipline included: targeted, test-gated releases, and a
+             production org that is never a guess.</p>
+          <ul><li>Monthly retainer</li><li>Release management</li><li>Code review</li><li>Escalation</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== WORKING DEPTH ======================= -->
+  <section class="section section--tint" id="depth">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Working depth</p>
+        <h2>What I've already worked in.</h2>
+        <p>A record of where I've spent time, not a shortlist of what I'd put you on. Everything
+           here has trade-offs &mdash; that is mostly how I came to know it &mdash; and the job is
+           to give you what you need to decide, not to move you onto something because it happens to
+           be familiar to me. If what you run isn't on this list, that is not a problem: picking up
+           unfamiliar software quickly is the part of this work I'm best at.</p>
+      </div>
+
+      <div class="depth">
+        <div class="depth__group">
+          <h3>Platform</h3>
+          <ul>
+            <li>Apex</li>
+            <li>Flow</li>
+            <li>Lightning Web Components</li>
+            <li>Aura Components</li>
+            <li>Visualforce</li>
+            <li>Named Credentials</li>
+            <li>Platform Events &amp; CDC</li>
+            <li>Salesforce Connect</li>
+            <li>Salesforce DX</li>
+            <li>Experience Cloud</li>
+          </ul>
+        </div>
+
+        <div class="depth__group">
+          <h3>Quote-to-cash &amp; finance</h3>
+          <ul>
+            <li>Salesforce CPQ</li>
+            <li>Salesforce Billing</li>
+            <li>RightRev</li>
+            <li>Accounting Seed</li>
+            <li>Chargent</li>
+            <li>Stripe</li>
+            <li>Authorize.Net</li>
+            <li>QuickBooks</li>
+            <li>AWS Marketplace billing</li>
+            <li>Tackle</li>
+          </ul>
+        </div>
+
+        <div class="depth__group">
+          <h3>Service &amp; support</h3>
+          <ul>
+            <li>Salesforce Knowledge</li>
+            <li>Email-to-Case</li>
+            <li>Web-to-Case</li>
+            <li>Case routing &amp; escalation</li>
+            <li>Inbound call routing</li>
+            <li>Work Orders &amp; shift scheduling</li>
+          </ul>
+        </div>
+
+        <div class="depth__group">
+          <h3>Data &amp; migration</h3>
+          <ul>
+            <li>Data Loader</li>
+            <li>DemandTools</li>
+            <li>DLRS</li>
+            <li>Rollup Helper</li>
+          </ul>
+        </div>
+
+        <div class="depth__group">
+          <h3>Documents &amp; signature</h3>
+          <ul>
+            <li>Conga Composer</li>
+            <li>Conga Sign</li>
+            <li>DocuSign</li>
+          </ul>
+        </div>
+
+        <div class="depth__group">
+          <h3>Integration</h3>
+          <ul>
+            <li>REST / SOAP / Bulk / Composite APIs</li>
+            <li>Twilio</li>
+            <li>Zoom</li>
+            <li>ZipWhip</li>
+            <li>Orion Connect</li>
+            <li>Unify</li>
+            <li>Zapier</li>
+            <li>HubSpot</li>
+          </ul>
+        </div>
+
+        <div class="depth__group">
+          <h3>Security &amp; operations</h3>
+          <ul>
+            <li>Shield Platform Encryption</li>
+            <li>Shield Event Monitoring</li>
+            <li>TaskRay</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="depth__also">
+        <span>Consulted on, short of building it end to end</span>
+        Clio &middot; Confluence &middot; Ironclad &middot; Mindbody &middot; NetSuite &middot;
+        PandaDoc &middot; Slack
+      </p>
+
+      <p class="depth__also">
+        <span>Encountered, without claiming depth</span>
+        Account Engagement (Pardot) &middot; Adobe Acrobat Sign &middot; Avalara &middot;
+        Blackbaud Raiser's Edge &middot; Celigo &middot; CRM Analytics &middot; Data Cloud &middot;
+        Financial Services Cloud &middot; Gearset &middot; Geopointe &middot; Jira &middot;
+        LinkedIn Sales Navigator &middot; Marketing Cloud &middot; MuleSoft &middot;
+        Salesforce Field Service &middot; WealthBox &middot; Zoho
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================== APPROACH ========================== -->
+  <section class="section" id="approach">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Approach</p>
+        <h2>How I work, stated plainly.</h2>
+        <p>These are the commitments that tend to matter most to the people who hire me, so
+           they're worth putting in writing before we ever speak.</p>
+      </div>
+
+      <div class="approach">
+        <div class="approach__item">
+          <span class="approach__num">01</span>
+          <h3>You work with the engineer</h3>
+          <p>Architech is one person by design. The person who scopes your project is the person who
+             writes the code and the person who answers the phone when something breaks. Nothing is
+             translated through an account manager or passed to a delivery team you've never met.</p>
+        </div>
+
+        <div class="approach__item">
+          <span class="approach__num">02</span>
+          <h3>Nothing ships undocumented</h3>
+          <p>Every engagement ends with written documentation of what was built and why. Consultants
+             who leave behind undocumented systems create the exact problem I usually get hired to
+             fix &mdash; so I refuse to be the next one.</p>
+        </div>
+
+        <div class="approach__item">
+          <span class="approach__num">03</span>
+          <h3>Production is never a guess</h3>
+          <p>Targeted, test-gated deployments only &mdash; specific components with their specific
+             tests, never a whole directory pushed and hoped over. You always see the exact change
+             before it reaches production.</p>
+        </div>
+
+        <div class="approach__item">
+          <span class="approach__num">04</span>
+          <h3>I'll tell you when not to build</h3>
+          <p>Sometimes the honest answer is that a feature isn't worth what it costs to maintain, or
+             that a licence you already own solves it. One of my design documents states plainly that
+             the build needs no custom Apex or pages at all; another recommends postponing a
+             document-generation tool until the first phase had earned it. That costs me the most
+             billable part of a project, and buys the kind of trust that keeps clients for years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WORK ============================ -->
+  <section class="section section--tint" id="work">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Selected work</p>
+        <h2>What the projects actually look like.</h2>
+        <p>Client names are withheld under the confidentiality terms of my standard agreement.
+           Described by problem and shape instead &mdash; which is the part worth reading anyway.</p>
+      </div>
+
+      <div class="sectors">
+        <article class="sector">
+          <span class="sector__tag">Telecom &middot; Billing</span>
+          <h3>Multi-region billing integration</h3>
+          <p>Flow-invocable Apex connecting Salesforce to an operator billing platform across seven
+             regional endpoints. Every batch is validated completely before a single callout fires,
+             so a bad row fails the batch instead of leaving half the records sent.</p>
+        </article>
+
+        <article class="sector">
+          <span class="sector__tag">Enterprise &middot; Org audit</span>
+          <h3>Automation archaeology</h3>
+          <p>A mature org where nobody remaining knew what the automation did. Traced every flow and
+             rule against live behaviour, eliminated well over a hundred false positives from the
+             initial scan, and delivered a twenty-three chapter guide the team still works from.</p>
+        </article>
+
+        <article class="sector">
+          <span class="sector__tag">Financial operations</span>
+          <h3>Revenue share &amp; multi-currency</h3>
+          <p>Revenue-share calculation and multi-currency reconciliation built on top of a managed
+             accounting package, including the currency-conversion corrections that made the USD
+             figures reconcile for the first time.</p>
+        </article>
+
+        <article class="sector">
+          <span class="sector__tag">Corporate wellbeing &middot; Platform</span>
+          <h3>A booking platform, and the org behind it</h3>
+          <p>A custom scheduling service &mdash; its own API, authorisation layer and notification
+             workers &mdash; talking both ways to a Salesforce org built to match: orders into
+             sessions into shifts, practitioner availability, time entries and post-session scoring.
+             Bookings arriving from five instances of a third-party scheduling product land in the
+             same model as everything else.</p>
+        </article>
+
+        <article class="sector">
+          <span class="sector__tag">Compliance software &middot; Quote-to-cash</span>
+          <h3>Contracted revenue, recognised correctly</h3>
+          <p>Configure-price-quote through billing schedules into revenue contracts and recognition,
+             with an approval matrix in front of it and more than one payment gateway behind it.
+             Cloud-marketplace orders land in the same pipeline as direct sales rather than in a
+             spreadsheet beside it.</p>
+        </article>
+
+        <article class="sector">
+          <span class="sector__tag">Real-estate media &middot; Portal</span>
+          <h3>Three portals, one model</h3>
+          <p>A marketplace where photographers, processing staff and agents each sign in to the same
+             system and see a different one. Orders fan out into work orders and line items, move
+             through an upload-and-review pipeline, and come back as a finished product &mdash; with
+             payment capture and order history in the place the work actually happens.</p>
+        </article>
+
+        <article class="sector">
+          <span class="sector__tag">Legal &middot; Practice management</span>
+          <h3>Three products read, one model drawn</h3>
+          <p>Matters, claims, damages, negotiations, time and expense entries and billing, modelled
+             from scratch. The design work was mostly forensic: reading three competing practice
+             management products to establish what the firm actually relied on, before deciding what
+             deserved to be rebuilt at all.</p>
+        </article>
+
+        <article class="sector">
+          <span class="sector__tag">Wealth management &middot; Data integration</span>
+          <h3>Portfolio data where the advisers already work</h3>
+          <p>A sync between Salesforce and a portfolio accounting platform &mdash; households,
+             financial accounts, holdings and balance history &mdash; with custom pages for the parts
+             the standard integration wouldn't do, and a migration that merged the old records into
+             the new model instead of leaving the firm running both.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== ABOUT ============================ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>Gabriel Marquez</h2>
+          <ul class="about__facts" style="margin-top:2rem">
+            <li><span class="k">Entity</span><span class="v">Architech Business Consulting, LLC</span></li>
+            <li><span class="k">Based</span><span class="v">Sandy, Utah &middot; Mountain Time</span></li>
+            <li><span class="k">Serving</span><span class="v">United States &amp; Canada</span></li>
+            <li><span class="k">Engagement</span><span class="v">MSA + Scope of Work</span></li>
+            <li><span class="k">Structure</span><span class="v">Hourly or fixed price</span></li>
+          </ul>
+        </div>
+
+        <div class="about__body">
+          <p>I've spent my career inside other people's Salesforce orgs &mdash; usually the ones that
+             have been running long enough to accumulate history. Layers of automation added by people
+             who have since left. Managed packages nobody fully understands. Integrations that work
+             right up until the day they quietly stop.</p>
+          <p>The work I'm best at is making those systems legible again, and then extending them
+             without adding to the pile. The other half of the job is the opposite: drawing the
+             object model before anything is built, so the org has a shape worth inheriting in the
+             first place. Either way I spend as much time reading and drawing as writing new code,
+             and I think that ratio is the reason the systems I build tend to outlast my involvement
+             in them.</p>
+          <p>Architech has operated since 2017. I work with a small number of clients at a time,
+             directly and under a standard master services agreement, which is the arrangement that
+             produces the best work for everyone involved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== CONTACT =========================== -->
+  <section class="section section--tint" id="contact">
+    <div class="wrap contact">
+      <p class="eyebrow" style="justify-content:center">Get in touch</p>
+      <h2>Tell me what's broken.</h2>
+      <p>The readiness review is free, needs no sign-up, and runs entirely in your browser &mdash;
+         I never see your answers unless you choose to send them. Do that first if you want a
+         better conversation than a blank email allows. Otherwise, plain email is always welcome.</p>
+      <div class="contact__actions">
+        <a class="btn btn--primary" href="/scope/">Start the free review <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+      <a class="contact__mail" href="mailto:info@architechbc.com">info@architechbc.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <small>&copy; <span id="year">2026</span> Architech Business Consulting, LLC &middot; Sandy, Utah</small>
+    <nav aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="/scope/">Readiness review</a>
+      <a href="mailto:info@architechbc.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Hairline under the header once the page scrolls.
+  var header = document.getElementById('siteHeader');
+  var onScroll = function () {
+    header.setAttribute('data-scrolled', window.scrollY > 8 ? 'true' : 'false');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu.
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', function () {
+    var open = nav.getAttribute('data-open') === 'true';
+    nav.setAttribute('data-open', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.setAttribute('data-open', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
